@@ -15,16 +15,6 @@ This capstone project develops a **Transparent AI Framework** to predict and exp
 
 The project applies state-of-the-art **Explainable AI (XAI)** techniques — specifically **SHAP** and **LIME** — to make black-box machine learning models interpretable in a high-stakes healthcare context.
 
----
-
-## 🎯 Research Questions
-
-1. Can ML models accurately predict whether a health insurance claim denial will be **overturned or upheld**?
-2. Which features (diagnosis, treatment type, demographics) are most influential in the model's prediction? *(Global XAI)*
-3. How can individual predictions be explained for specific patient cases? *(Local XAI)*
-4. Do patient demographics (age, gender) introduce bias in claim outcomes? *(Fairness Analysis)*
-
----
 
 ## 📂 Project Structure
 
@@ -57,14 +47,32 @@ capstone-xai-healthcare/
 
 | Property | Value |
 |----------|-------|
-| **Source** | California DMHC — Independent Medical Review Determinations |
+| **Name** | IMR Determinations Trends |
+| **Source** | California Department of Managed Health Care (DMHC) |
 | **Records** | 42,749 |
 | **Features** | 14 |
-| **Target** | `Determination` (Overturned / Upheld) |
+| **Target Variable** | `Determination` (Overturned / Upheld) |
 | **Class Balance** | 52.5% Overturned / 47.5% Upheld |
 | **Time Span** | 2001 – 2026 |
+| **File Size** | ~85 MB |
 
-> ⚠️ The raw dataset file is excluded from this repository due to size (~85 MB). Download it from the [DMHC Open Data Portal](https://www.dmhc.ca.gov/data-and-statistics.aspx).
+> ⚠️ **The raw dataset is NOT stored in this repository** (too large for GitHub). Use one of the download options below.
+
+### 📥 How to Get the Dataset
+
+**Option 1 — Official Source (Free)**
+Download directly from the California DMHC Open Data Portal:
+🔗 [DMHC IMR Determinations Dataset](https://www.dmhc.ca.gov/data-and-statistics.aspx)
+- File: `independent-medical-review-imr-determinations-trends.csv`
+
+**Option 2 — Google Drive (Shared by Author)**
+🔗 [Download from Google Drive](https://drive.google.com/drive/folders/15fLR5dd4anqQThCnm20Vw2C1Pe7tYKXE?usp=drive_link)
+
+### 📁 After Downloading
+Place the CSV file here:
+```
+data/raw/independent-medical-review-imr-determinations-trends.csv
+```
 
 ---
 
@@ -89,60 +97,4 @@ capstone-xai-healthcare/
 | SHAP Waterfall Plot | Local | `shap` |
 | LIME Explanation | Local | `lime` |
 
----
 
-## ⚙️ Setup & Installation
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/denniss-stack1/capstone-xai-healthcare.git
-cd capstone-xai-healthcare
-```
-
-### 2. Create a virtual environment
-```bash
-python -m venv venv
-venv\Scripts\activate      # Windows
-source venv/bin/activate   # Mac/Linux
-```
-
-### 3. Install dependencies
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Add your dataset
-Place the raw CSV file in `data/raw/` folder.
-
-### 5. Run notebooks in order
-```
-notebooks/01_EDA.ipynb → 02_Preprocessing.ipynb → 03_Modeling.ipynb → 04_XAI_Explanations.ipynb
-```
-
----
-
-## 📈 Results Summary
-
-> *This section will be updated as the project progresses.*
-
-| Model | Accuracy | F1-Score | ROC-AUC |
-|-------|----------|----------|---------|
-| Logistic Regression | TBD | TBD | TBD |
-| Random Forest | TBD | TBD | TBD |
-| XGBoost | TBD | TBD | TBD |
-| LightGBM | TBD | TBD | TBD |
-
----
-
-## 👤 Author
-
-**Dennis Sebastian**  
-Masters Student — Data Science / AI  
-📧 dennis.sebastiangeorge1@gmail.com  
-🐙 [@denniss-stack1](https://github.com/denniss-stack1)
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
