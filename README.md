@@ -7,6 +7,9 @@ The project aims to build a transparent and explainable AI framework capable of 
 California Department of Managed Health Care (DMHC) Independent Medical Review (IMR) Determinations Dataset
 # Project Goals
 Predict IMR outcomes, Identify key factors driving decisions, Generate explainable predictions using SHAP, Evaluate fairness and transparency, Develop a decision-support prototype
-
+# Technologies
+Python (pandas, NumPy, Scikit- Learn, XGBoost)
+SHAP
+Streamlit
 
 
