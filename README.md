@@ -111,8 +111,4 @@ IMR-claim-denial-explainability_Den/
 
 ---
 
-## 👥 Authors & Academic Context
 
-* **Dennis Sebastian** (Matriculation No. 59593398) — Master of Data Science, University of Europe for Applied Sciences
-* **Saran Jayakumaran Nair Sasikala** (Matriculation No. 56500625) — Master of Data Science, University of Europe for Applied Sciences
-* **Academic Supervisor:** Dr. Humera Noor
