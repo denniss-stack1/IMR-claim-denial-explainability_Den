@@ -30,6 +30,8 @@ data/raw/*.parquet
 *.csv
 
 # Trained Models (large files)
+*.pkl
+*.joblib
 models/*.pkl
 models/*.joblib
 models/*.h5

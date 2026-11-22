@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Progress Dashboard - Sprint 2 | Transparent AI Healthcare Claims</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #0284c7;
+            --accent-color: #10b981;
+            --warning-color: #f59e0b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: linear-gradient(135deg, #0f172a, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2.5rem 1rem;
+            text-align: center;
+            border-bottom: 4px solid var(--secondary-color);
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            padding: 0.35rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+        header h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2.1rem;
+            font-weight: 700;
+        }
+        header p {
+            margin: 0.3rem 0;
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1050px;
+            margin: -1.5rem auto 3rem auto;
+            padding: 0 1rem;
+        }
+        section {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.75rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid var(--border-color);
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            font-size: 1.35rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 10px 14px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.25rem;
+            margin: 1.25rem 0;
+        }
+        .stat-card {
+            background: #f8fafc;
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid var(--secondary-color);
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .stat-card.accent {
+            border-left-color: var(--accent-color);
+        }
+        .stat-card h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1.75rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        .stat-card p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .metric-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.25rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: var(--secondary-color);
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+        .btn-outline:hover {
+            background: #f1f5f9;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <span class="badge">Sprint 2 Milestone Completed</span>
+        <h1>Transparent AI Framework for Identifying &amp; Explaining Claim Denials in Healthcare</h1>
+        <p>Master of Data Science Capstone Project &bull; University of Europe for Applied Sciences</p>
+        <p><strong>Students:</strong> Dennis Sebastian (59593398) &amp; Saran Jayakumaran Nair Sasikala (56500625) | <strong>Supervisor:</strong> Dr. Humera Noor</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Sprint 2 Executive Highlights -->
+        <section>
+            <h2>Sprint 2 Milestone Summary (Reporting Period: 09 Nov – 22 Nov 2026)</h2>
+            <p>Sprint 2 successfully delivered an automated, leak-free data preprocessing pipeline and established baseline machine learning benchmarks on 41,332 cleaned Independent Medical Review (IMR) determinations from the California DMHC.</p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>41,332</h3>
+                    <p>Cleaned Complete Cases (96.7% Retained)</p>
+                </div>
+                <div class="stat-card accent">
+                    <h3>74.7%</h3>
+                    <p>Top Baseline ROC-AUC (Random Forest)</p>
+                </div>
+                <div class="stat-card accent">
+                    <h3>72.5%</h3>
+                    <p>Precision on Overturned Denials</p>
+                </div>
+                <div class="stat-card">
+                    <h3>68.1%</h3>
+                    <p>HistGB Accuracy (F1: 0.683)</p>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a href="Progress_Report_2_IMR_Healthcare_XAI.pdf" class="btn" target="_blank">📄 View Progress Report 2 (PDF)</a>
+                <a href="02_Preprocessing_and_Baseline_Modeling.ipynb" class="btn btn-outline" target="_blank">📓 Open Sprint 2 Notebook</a>
+            </div>
+        </section>
+
+        <!-- Baseline Model Leaderboard -->
+        <section>
+            <h2>Sprint 2 Baseline Model Benchmark Leaderboard</h2>
+            <p>Evaluation conducted on strictly isolated, stratified 20% test partition (8,267 held-out records) preserving 52.94% Overturned / 47.06% Upheld class balance:</p>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Architecture</th>
+                            <th>Family</th>
+                            <th>Accuracy</th>
+                            <th>Precision</th>
+                            <th>Recall</th>
+                            <th>F1-Score</th>
+                            <th>ROC-AUC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Random Forest</strong> (100 trees, depth 12)</td>
+                            <td>Ensemble Bagging</td>
+                            <td>67.22%</td>
+                            <td><strong>72.52%</strong></td>
+                            <td>61.32%</td>
+                            <td>0.665</td>
+                            <td><span class="metric-badge">0.747</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hist Gradient Boosting</strong> (LightGBM equiv.)</td>
+                            <td>Gradient Boosting</td>
+                            <td><strong>68.07%</strong></td>
+                            <td>71.97%</td>
+                            <td><strong>65.00%</strong></td>
+                            <td><strong>0.683</strong></td>
+                            <td><span class="metric-badge">0.745</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Logistic Regression</strong> (Standardized)</td>
+                            <td>Linear Baseline</td>
+                            <td>58.86%</td>
+                            <td>59.88%</td>
+                            <td>67.56%</td>
+                            <td>0.635</td>
+                            <td>0.632</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Data Cleansing & Leakage Prevention -->
+        <section>
+            <h2>Data Engineering &amp; Leakage Mitigation Strategy</h2>
+            <ul>
+                <li><strong>Deduplication:</strong> 39 exact duplicate entries removed from raw ingestion.</li>
+                <li><strong>Missing Value Discovery:</strong> Audited that missing demographic entries (685 rows) and review turnaround duration (691 rows) occupied non-overlapping cohorts, resolved via complete case analysis.</li>
+                <li><strong>Target Leakage Mitigation:</strong> Isolated physician reviewer text narratives (<code>Findings</code>) from tabular models because post-hoc summaries contained verbatim outcome statements (e.g., <i>"Therefore, the Health Plan denial should be upheld"</i>).</li>
+                <li><strong>Feature Representation:</strong> Mapped patient age into 7 ordered lifecycle bands (0–6), and applied high-cardinality label encodings to 532 diagnosis subcategories and 498 treatment classifications.</li>
+            </ul>
+        </section>
+
+        <!-- Visual Deliverables Preview -->
+        <section>
+            <h2>Sprint 2 Key Figures &amp; Visual Analytics</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary-color);">ROC-AUC Model Comparison</h4>
+                    <img src="fig3_roc_comparison.png" alt="ROC Comparison" style="width: 100%; border-radius: 6px; border: 1px solid var(--border-color);">
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: var(--primary-color);">Clinical Feature Importance</h4>
+                    <img src="fig5_feature_importance.png" alt="Feature Importance" style="width: 100%; border-radius: 6px; border: 1px solid var(--border-color);">
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Sprint 3 -->
+        <section>
+            <h2>Upcoming Sprint 3: Machine Learning Optimization (24 Nov – 07 Dec 2026)</h2>
+            <ul>
+                <li>5-Fold Cross-Validated Hyperparameter Optimization (GridSearchCV/RandomizedSearchCV) across Random Forest, LightGBM, and CatBoost.</li>
+                <li>Exploration of frequency encoding and clinical text keyword signals.</li>
+                <li>Selection and serialization of champion model (<code>best_model.pkl</code>) ready for Global SHAP TreeExplainer in Sprint 4.</li>
+            </ul>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Transparent AI Framework for Healthcare Claim Denials &bull; Capstone Project 2026 &bull; University of Europe for Applied Sciences</p>
+    </footer>
+
+</body>
+</html>

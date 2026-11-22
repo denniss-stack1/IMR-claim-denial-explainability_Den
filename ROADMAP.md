@@ -11,8 +11,8 @@
 | Sprint | Category | Start | Deadline | Status |
 |--------|----------|-------|----------|--------|
 | Sprint 1 | EDA + Data Engineering (initial) | Oct 1, 2026 | **Nov 1, 2026** | ✅ Completed |
-| Sprint 2 | Data Engineering (full pipeline) | Nov 2, 2026 | **Nov 15, 2026** | 🔵 Active |
-| Sprint 3 | Machine Learning | Nov 16, 2026 | **Nov 30, 2026** | ⬜ Upcoming |
+| Sprint 2 | Data Engineering & Baseline Models | Nov 9, 2026 | **Nov 23, 2026** | ✅ Completed |
+| Sprint 3 | Machine Learning Optimization | Nov 24, 2026 | **Dec 07, 2026** | 🔵 Active |
 | Sprint 4 | Explainability (Global XAI) | Dec 1, 2026 | **Dec 14, 2026** | ⬜ Upcoming |
 | Sprint 5 | Explainability (Local XAI) | Dec 15, 2026 | **Dec 28, 2026** | ⬜ Upcoming |
 | Sprint 6 | Documentation + Presentation | Dec 29, 2026 | **Jan 16, 2027** | ⬜ Upcoming |
@@ -54,40 +54,49 @@ Understand the IMR dataset end-to-end, establish the research questions, and com
 
 ---
 
-## 🔵 Sprint 2 — Full Data Engineering Pipeline
-📅 **Nov 2 – Nov 15, 2026** | 🏷️ Category: `Data Engineering` | 🔵 **ACTIVE NOW**
+## ✅ Sprint 2 — Full Data Engineering Pipeline & Baseline Benchmarking
+📅 **Nov 9 – Nov 22, 2026** | 🏷️ Category: `Data Engineering & Baseline ML` | ✅ **COMPLETED** (Submitted Nov 23, 2026)
 
 ### 🎯 Sprint Goal
-Build a complete, reproducible preprocessing pipeline that transforms raw IMR data into model-ready features.
+Build a complete, reproducible preprocessing pipeline that transforms raw IMR data into model-ready features, mitigate retrospective data leakage, and establish baseline model benchmarks.
 
 ### 📋 Tasks
 
-#### 🗄️ Data Engineering
-- [ ] **Missing Values**: Drop the 691 rows missing AgeRange / PatientGender / DaysToReview (only 1.62%)
-- [ ] **Target Encoding**: `Determination` → Binary (Overturned=1, Upheld=0)
-- [ ] **Ordinal Encoding**: `AgeRange` → integer order (0–6)
+#### 🗄️ Data Engineering & Hygiene
+- [x] **Deduplication**: Audited and purged 39 exact duplicate rows.
+- [x] **Missing Values**: Identified non-overlapping demographic (685 rows) vs review turnaround (691 rows) null cohorts. Handled 1,378 rows with missing values via complete case analysis (41,332 retained, 96.69%).
+- [x] **Target Encoding**: `Determination` → Binary (Overturned=1 [52.94%], Upheld=0 [47.06%]).
+- [x] **Ordinal Encoding**: `AgeRange` → integer order (0–6).
   ```
   0–10=0, 11–20=1, 21–30=2, 31–40=3, 41–50=4, 51–64=5, 65+=6
   ```
-- [ ] **Label Encoding**: `PatientGender`, `IMRType`, `Type`
-- [ ] **Label Encoding**: `DiagnosisCategory`, `DiagnosisSubCategory` (high cardinality)
-- [ ] **Label Encoding**: `TreatmentCategory`, `TreatmentSubCategory`
-- [ ] **Keep as Numeric**: `ReportYear`, `DaysToReview`, `DaysToAdopt`
-- [ ] **Drop**: `ReferenceID` (ID column), `Findings` (raw text — optional NLP extension)
-- [ ] Train/Test split (80/20, stratified, random_state=42)
-- [ ] Save processed dataset → `data/processed/imr_processed.csv`
-- [ ] Save label encoders → `models/encoders.pkl`
+- [x] **Label Encoding**: `PatientGender`, `IMRType`, `Type` (Medical Necessity vs Experimental vs Urgent Care).
+- [x] **Label Encoding**: `DiagnosisCategory` (48 classes), `DiagnosisSubCategory` (532 classes).
+- [x] **Label Encoding**: `TreatmentCategory` (58 classes), `TreatmentSubCategory` (498 classes).
+- [x] **Keep as Numeric**: `ReportYear`, `DaysToReview`, `DaysToAdopt`.
+- [x] **Leakage Mitigation**: Dropped `ReferenceID`, strictly isolated `Findings` text (containing explicit decision statements) to protect tabular models from retrospective leakage.
+- [x] **Train/Test split**: 80/20 stratified split (`random_state=42`) preserving 52.94% class balance (33,065 train, 8,267 test).
+- [x] **Save processed dataset** → `data/processed/imr_processed.csv` and `imr_processed.csv`.
+- [x] **Save label encoders** → `models/encoders.pkl` and `scaler.pkl`.
 
-#### 📝 Documentation
-- [ ] Update README with preprocessing decisions
-- [ ] Commit all changes to GitHub
+#### 🤖 Baseline Model Benchmarking
+- [x] **Logistic Regression (Linear Baseline)**: Acc: 58.86% | Precision: 59.88% | Recall: 67.56% | ROC-AUC: 0.632
+- [x] **Random Forest (100 Trees, Depth 12)**: Acc: 67.22% | Precision: 72.52% | Recall: 61.32% | ROC-AUC: 0.747
+- [x] **Hist Gradient Boosting (Ensemble Benchmark)**: Acc: 68.07% | Precision: 71.97% | Recall: 65.00% | F1: 0.683 | ROC-AUC: 0.745
+
+#### 📝 Documentation & Reports
+- [x] Created Sprint 2 Jupyter Notebook: `02_Preprocessing_and_Baseline_Modeling.ipynb`
+- [x] Generated high-res evaluation plots (Figures 1–5: Funnel audit, stratification, ROC comparison, confusion matrices, feature importance)
+- [x] Generated formal publication-quality Progress Report 2 PDF: `Progress_Report_2_IMR_Healthcare_XAI.pdf`
+- [x] Individual LinkedIn Post drafts prepared for Dennis Sebastian and Saran Jayakumaran Nair Sasikala
+- [x] Updated web dashboard (`index.html`, `XAI_capestone.html`) with Sprint 2 progress
 
 ### 📦 Deliverables
-- `notebooks/02_Preprocessing.ipynb`
+- `02_Preprocessing_and_Baseline_Modeling.ipynb`
 - `data/processed/imr_processed.csv`
-- `models/encoders.pkl`
-
-### ⏰ Deadline: **November 15, 2026**
+- `models/encoders.pkl` & `models/baseline_models.pkl`
+- `outputs/figures/fig1_data_cleaning_audit.png` through `fig5_feature_importance.png`
+- `Progress_Report_2_IMR_Healthcare_XAI.pdf`
 
 ---
 
