@@ -1,8 +1,6 @@
 # 🏥 Transparent AI Framework for Healthcare Claim Denial Explanations
-### Masters Capstone Project — Explainable AI (XAI)
-**University of Europe for Applied Sciences — Master of Data Science**  
-**Students:** Dennis Sebastian (59593398) & Saran Jayakumaran Nair Sasikala (56500625)  
-**Supervisor:** Dr. Humera Noor  
+### Project — Explainable AI (XAI)
+ 
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)](https://python.org)
 [![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--Learn-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
